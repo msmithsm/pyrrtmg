@@ -27,7 +27,7 @@ subroutine rad(nlay, nlev, &
              ! tsfc       skin temperature
              ! qlay(nlay) h2o mass mixing ratio (g/g)
              ! o3lay(nlay) o3 mass mixing ratio (g/g)
-             ! co2vmr, ch4vmr, n2ovmr, o2vmr, cfc11vmr, cfc12vmr, cfc22vmr, ccl4vmr: 
+             ! co2ppmv, ch4vmr, n2ovmr, o2vmr, cfc11vmr, cfc12vmr, cfc22vmr, ccl4vmr: 
              ! 		volume mixing ratio for other gases. Assumed to be uniformly mixed
              ! emis : surface emissivity (scalar, or grey body)
              ! 
