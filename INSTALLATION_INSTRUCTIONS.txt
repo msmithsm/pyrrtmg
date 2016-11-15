@@ -1,0 +1,68 @@
+INSTALLATION INSTRUCTIONS FOR RRTMG python module
+
+AUTHOR: MAXWELL SMITH
+        UNIVERSITY OF WASHINGTON
+        12 NOV 2016
+
+SCOPE: The license and contents of this document refer only to the python 
+    wrappers to interface with RRTMG. RRTMG comes with its own license and is 
+    available for download at http://rtweb.aer.com/rrtm_frame.html
+    
+INSTALL: 
+    This code has been developed and tested on 64-bit Darwin and 
+    64-bit GNU/Linux. The makefiles included will build the RRTMG model from 
+    source using the gfortran compiler. Build files require access to this 
+    compiler and a working install of the f2py conversion tool that comes
+    with numpy. 
+
+    To build the libraries cd into the rrtmg_lw and rrtmg_sw directories and 
+    type
+  
+        make all
+    
+    This will compile RRTMG, using a librrtmgXX.so in rrtmg_XX/lib. This 
+    shared object will be used to compile the rrtmg_XX_interface.f90 routines, 
+    which provide a much simpler (vector-based rather than multi-dimensional 
+    array-based) API for np.ndarray types in python. 
+
+    The rrtmg_XX_interface.f90 is compiled using f2py into a machine-specific 
+    cpython shared library will is named XX.cpython-<buildinfo>.so 
+    This shared object is then edited using install_name_tool (Darwin) or 
+    patchelf (GNU/Linux) with an ABSOLUTE path to the rrtmg_XX/lib/librrtmgXX.so 
+    This is done to make sure that the cpython shared object knows how to find 
+    the RRTMG fortran library. Without it, dlopen will not be able to load the 
+    python package (unless you set LD_LIBRAR_PATH, but please don't do that). 
+    This also means that not only are the python wrappers and RRTMG object code
+    MACHINE DEPENDENT, but that they must be recompiled if they are moved. 
+    It is advisable, therefore, that you install the pyrrtmg package directory
+    inside of your host package, or at least somewhere on your python search 
+    path. It is possible, but unadvisable, to manually add the pyrrtmg to the
+    path dynamically in a module using sys.path.insert(0, '/to/cpythondir').
+    
+    
+    The makefiles included do not go to great lengths to make sure everything
+    compiles in the right order, so you may need to run make several times to 
+    resolve all of the dependencies and get the cpython .so's. 
+
+    Once the object files are created and linked, you should test the install
+    by running
+
+       import pyrrtmg.functiontest
+       pyrrtmg.functiontest.functiontest()
+
+    This will display a message and the results of a test call to RRTMG if all
+    was done correctly above. Note that this will not tell you WHY it may fail
+    but only that it did fail. This is a nice sanity check, but as stated here
+    this code comes with no warranty. 
+
+    
+	
+	
+	
+All set!
+
+
+import rrtmg
+rrtmg.lw.init(cpdair)
+uflx, dflx = rrtmg.lw.rad( *args )
+

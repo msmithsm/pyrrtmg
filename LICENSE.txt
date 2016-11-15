@@ -1,0 +1,9 @@
+Per the RRTMG user agreement, the contents of this python package are 
+available subject to the following license. For the License pertaining to the 
+RRTMG source code, see the LICENSE.txt files in the appropriate 
+subdirectories. 
+
+Copyright © 2016 University of Washington 
+This software may be used, copied, or redistributed as long as it is not sold 
+and this copyright notice is reproduced on each copy made. This model is 
+provided as is without any express or implied warranties.
