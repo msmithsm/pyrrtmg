@@ -8,7 +8,7 @@ program functiontest
   real               :: tsfc
   real, dimension(6) :: qlay
   real, dimension(6) :: o3lay
-  real               :: co2vmr
+  real               :: co2ppmv
   real               :: o2vmr
   
   real, dimension(7) :: uflxc
@@ -19,14 +19,14 @@ program functiontest
   
   
   print*, 'starting funcitontest'
-  call stdatm(play, plev, tlay, tlev, tsfc, qlay, o3lay, co2vmr, o2vmr)
+  call stdatm(play, plev, tlay, tlev, tsfc, qlay, o3lay, co2ppmv, o2vmr)
   print*, 'pass stdatm call'
   
   
   call rad(6, 7, &
                     play, plev, tlay, tlev, tsfc, &
                     qlay, o3lay, &
-                    co2vmr, 0.0, 0.0, o2vmr, &
+                    co2ppmv, 0.0, 0.0, o2vmr, &
                     0.0,0.0,0.0,0.0, &
                     1.0, &
                     uflxc,dflxc)
@@ -41,7 +41,7 @@ program functiontest
   
 end program functiontest
 
-subroutine stdatm(play, plev, tlay, tlev, tsfc, qlay, o3lay, co2vmr, o2vmr) 
+subroutine stdatm(play, plev, tlay, tlev, tsfc, qlay, o3lay, co2ppmv, o2vmr) 
 	implicit none
   	real, dimension(6), intent(out) :: play
   	real, dimension(7), intent(out) :: plev
@@ -50,7 +50,7 @@ subroutine stdatm(play, plev, tlay, tlev, tsfc, qlay, o3lay, co2vmr, o2vmr)
   	real,               intent(out) :: tsfc
   	real, dimension(6), intent(out) :: qlay
   	real, dimension(6), intent(out) :: o3lay
-  	real,               intent(out) :: co2vmr
+  	real,               intent(out) :: co2ppmv
   	real,               intent(out) :: o2vmr
   	
   	
@@ -64,7 +64,7 @@ subroutine stdatm(play, plev, tlay, tlev, tsfc, qlay, o3lay, co2vmr, o2vmr)
   	tlay = 0.5*(tlev(1:6) + tlev(2:7))
   	qlay(:) = 0.0
   	o3lay(:) = 0.0
-  	co2vmr = 356.0
+  	co2ppmv = 356.0
   	o2vmr = 0.21
   	
   	
