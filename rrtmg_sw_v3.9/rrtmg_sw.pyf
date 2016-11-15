@@ -7,7 +7,7 @@ python module sw ! in
             use rrtmg_sw_init
             real(kind=8) intent(in) :: cpdair=1003.5
         end subroutine init
-        subroutine rad(nlay,nlev,play,plev,tlay,tlev,tsfc,qlay,o3lay,co2vmr,ch4vmr,n2ovmr,o2vmr,cfc11vmr,cfc12vmr,cfc22vmr,ccl4vmr,albedo,coszen,fday,scon,swuflxc,swdflxc) ! in :sw:rrtmg_sw_interface.f90
+        subroutine rad(nlay,nlev,play,plev,tlay,tlev,tsfc,qlay,o3lay,co2ppmv,ch4vmr,n2ovmr,o2vmr,cfc11vmr,cfc12vmr,cfc22vmr,ccl4vmr,albedo,coszen,fday,scon,swuflxc,swdflxc) ! in :sw:rrtmg_sw_interface.f90
             use parrrtm, only: nbndsw,naerec
             use rrtmg_sw_rad
             integer, optional,intent(hide),check(len(play)>=nlay),depend(play) :: nlay=len(play)
@@ -19,7 +19,7 @@ python module sw ! in
             real(kind=8) intent(in) :: tsfc
             real(kind=8) dimension(nlay),intent(in),depend(nlay) :: qlay
             real(kind=8) dimension(nlay),intent(in),depend(nlay) :: o3lay
-            real(kind=8) intent(in) :: co2vmr=356.0
+            real(kind=8) intent(in) :: co2ppmv=356.0
             real(kind=8) intent(in) :: ch4vmr=0.0
             real(kind=8) intent(in) :: n2ovmr=0.0
             real(kind=8) intent(in) :: o2vmr=0.21
