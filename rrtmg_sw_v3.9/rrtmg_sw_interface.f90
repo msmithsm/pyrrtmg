@@ -154,7 +154,7 @@ subroutine rad(nlay, nlev, &
              	tlay2(1,j) = tlay(j)
              	h2ovmr2(1,j) = qlay(j)/fh2o
              	o3vmr2(1,j) = o3lay(j)/fo3
-             	co2vmr2(1,j) = co2vmr*dble(1.0e-06)
+             	co2vmr2(1,j) = co2ppmv*dble(1.0e-06)
              	ch4vmr2(1,j) = ch4vmr
              	n2ovmr2(1,j) = n2ovmr
              	o2vmr2(1,j) = o2vmr
