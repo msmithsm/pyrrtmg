@@ -8,7 +8,7 @@ end subroutine init
 subroutine rad(nlay, nlev, &
                     play, plev, tlay, tlev, tsfc, &
                     qlay, o3lay, &
-                    co2vmr, ch4vmr, n2ovmr, o2vmr, &
+                    co2ppmv, ch4vmr, n2ovmr, o2vmr, &
                     cfc11vmr,cfc12vmr,cfc22vmr,ccl4vmr, &
                     emis, &
                     uflxc,dflxc)
@@ -52,7 +52,7 @@ subroutine rad(nlay, nlev, &
              real(kind=8),                  intent(in) :: tsfc
              real(kind=8), dimension(nlay), intent(in) :: qlay
              real(kind=8), dimension(nlay), intent(in) :: o3lay    
-             real(kind=8),                  intent(in) :: co2vmr
+             real(kind=8),                  intent(in) :: co2ppmv
              real(kind=8),                  intent(in) :: ch4vmr
              real(kind=8),                  intent(in) :: n2ovmr
              real(kind=8),                  intent(in) :: o2vmr
@@ -129,7 +129,7 @@ subroutine rad(nlay, nlev, &
              	tlay2(1,j) = tlay(j)
              	h2ovmr2(1,j) = qlay(j)/fh2o
              	o3vmr2(1,j) = o3lay(j)/fo3
-             	co2vmr2(1,j) = co2vmr
+             	co2vmr2(1,j) = co2ppmv*dble(1.0e-06)
              	ch4vmr2(1,j) = ch4vmr
              	n2ovmr2(1,j) = n2ovmr
              	o2vmr2(1,j) = o2vmr
