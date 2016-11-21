@@ -162,7 +162,6 @@ subroutine rad(nlay, nlev, &
              	cfc12vmr2(1,j) = cfc12vmr
              	cfc22vmr2(1,j) = cfc22vmr
              	ccl4vmr2(1,j) = ccl4vmr
-             	print*, play(j), tlay(j), qlay(j), o3lay(j)            			
              enddo
              
              do j = 1,nlev
