@@ -22,7 +22,8 @@ RRTMGSWVER:=rrtmg_sw_v3.9
 LIBNAME:=librrtmgsw.so
 ifeq ($(PLATFORM),Darwin) 
 	PYLIB:=sw.cpython-$(PYVERSION)-$(shell echo $(PLATFORM) | tr A-Z a-z).so
-else ($(PLATFORM),Linux)
+endif
+ifeq ($(PLATFORM),Linux)
 	PYLIB:=sw.cpython-$(PYVERSION)-x86_64-$(shell echo $(PLATFORM) | tr A-Z a-z)-gnu.so
 endif
 

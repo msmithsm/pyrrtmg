@@ -28,7 +28,7 @@
 ! ngsNN  :  integer: cumulative number of g-intervals per band
 !------------------------------------------------------------------
 
-      integer(kind=im), parameter :: mxlay  = 203
+      integer(kind=im), parameter :: mxlay  = 603
       integer(kind=im), parameter :: mg     = 16
       integer(kind=im), parameter :: nbndlw = 16
       integer(kind=im), parameter :: maxxsec= 4

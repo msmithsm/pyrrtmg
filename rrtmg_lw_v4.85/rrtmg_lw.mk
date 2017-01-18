@@ -22,7 +22,8 @@ RRTMGLWVER:=rrtmg_lw_v4.85
 LIBNAME:=librrtmglw.so
 ifeq ($(PLATFORM),Darwin) 
 	PYLIB:=lw.cpython-$(PYVERSION)-$(shell echo $(PLATFORM) | tr A-Z a-z).so
-else ($(PLATFORM),Linux)
+endif
+ifeq ($(PLATFORM),Linux)
 	PYLIB:=lw.cpython-$(PYVERSION)-x86_64-$(shell echo $(PLATFORM) | tr A-Z a-z)-gnu.so
 endif
 

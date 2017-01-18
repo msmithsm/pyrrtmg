@@ -8,7 +8,7 @@ passes you know everything is working as it should.
 
 import numpy as np
 
-from pyrrtmg import sw,lw
+from . import sw,lw
 
 def stdatm():
 	plev  = np.array([ 1013.25, 226.32, 54.75, 8.68, 1.10, .669, .0395])

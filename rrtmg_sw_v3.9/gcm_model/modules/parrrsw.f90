@@ -25,7 +25,7 @@
 ! ngsNN  :  integer: cumulative number of g-intervals per band
 !------------------------------------------------------------------
 
-      integer(kind=im), parameter :: mxlay  = 203    !jplay, klev
+      integer(kind=im), parameter :: mxlay  = 603    !jplay, klev
       integer(kind=im), parameter :: mg     = 16     !jpg
       integer(kind=im), parameter :: nbndsw = 14     !jpsw, ksw
       integer(kind=im), parameter :: naerec  = 6     !jpaer
